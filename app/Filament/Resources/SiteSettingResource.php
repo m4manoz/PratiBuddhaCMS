@@ -10,8 +10,7 @@ use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\KeyValue;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 
@@ -63,19 +62,62 @@ class SiteSettingResource extends Resource
                     ]),
                 Section::make('About page')
                     ->schema([
-                        KeyValue::make('about_page')
-                            ->label('About page JSON')
-                            ->helperText('Use keys hero_title, hero_subtitle, hero_text, mission_points, metrics, milestones')
-                            ->columnSpanFull(),
+                        self::jsonEditor('about_page', 'About page JSON', 'Use valid JSON. Supports keys like hero_title, hero_subtitle, hero_text, mission_points, metrics, milestones.'),
                     ]),
                 Section::make('Gallery / Events / Careers / Contact pages')
                     ->schema([
-                        KeyValue::make('gallery_items')->label('Gallery cards')->columnSpanFull(),
-                        KeyValue::make('events_items')->label('Events list')->columnSpanFull(),
-                        KeyValue::make('careers_items')->label('Career roles')->columnSpanFull(),
-                        KeyValue::make('contact_page')->label('Contact page')->columnSpanFull(),
+                        self::jsonEditor('gallery_items', 'Gallery cards', 'Array JSON expected.'),
+                        self::jsonEditor('events_items', 'Events list', 'Array JSON expected.'),
+                        self::jsonEditor('careers_items', 'Career roles', 'Array JSON expected.'),
+                        self::jsonEditor('contact_page', 'Contact page', 'Object JSON expected.'),
                     ]),
             ]);
+    }
+
+    protected static function jsonEditor(string $field, string $label, string $helperText): Textarea
+    {
+        return Textarea::make($field)
+            ->label($label)
+            ->rows(10)
+            ->columnSpanFull()
+            ->helperText($helperText)
+            ->nullable()
+            ->rule('json')
+            ->formatStateUsing(fn ($state) => self::encodeJsonState($state))
+            ->dehydrateStateUsing(fn ($state) => self::decodeJsonState($state));
+    }
+
+    protected static function encodeJsonState($state): string
+    {
+        if ($state === null || $state === '') {
+            return '';
+        }
+
+        if (is_string($state)) {
+            $decoded = json_decode($state, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                return json_encode($decoded, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+            }
+
+            return $state;
+        }
+
+        return json_encode($state, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    }
+
+    protected static function decodeJsonState($state)
+    {
+        if ($state === null || trim((string) $state) === '') {
+            return null;
+        }
+
+        if (is_array($state)) {
+            return $state;
+        }
+
+        $decoded = json_decode((string) $state, true);
+
+        return json_last_error() === JSON_ERROR_NONE ? $decoded : null;
     }
 
     public static function table(Table $table): Table
