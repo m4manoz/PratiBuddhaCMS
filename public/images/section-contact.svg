@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' viewBox='0 0 1200 700'>
+  <defs>
+    <linearGradient id='g4' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#e7f4ff'/>
+      <stop offset='100%' stop-color='#ccfbf1'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='700' fill='url(#g4)'/>
+  <rect x='80' y='180' width='1040' height='340' rx='24' fill='rgba(14,165,233,0.12)' stroke='#7dd3fc' stroke-width='3'/>
+  <text x='600' y='280' fill='#075985' font-size='56' font-family='Inter, Arial' font-weight='700' text-anchor='middle'>Contact Support</text>
+  <text x='600' y='350' fill='#1f2937' font-size='30' font-family='Inter, Arial' text-anchor='middle'>Sales, Service and Dealer Routing Help</text>
+</svg>

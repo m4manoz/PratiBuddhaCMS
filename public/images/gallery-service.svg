@@ -1,0 +1,11 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#0f172a"/>
+<rect x="90" y="120" width="1020" height="540" rx="24" fill="#1e293b"/>
+<circle cx="350" cy="300" r="70" fill="#334155"/>
+<rect x="300" y="430" width="360" height="70" rx="10" fill="#334155"/>
+<rect x="700" y="250" width="300" height="220" rx="14" fill="#0f172a"/>
+<circle cx="850" cy="260" r="40" fill="#38bdf8"/>
+<circle cx="850" cy="360" r="40" fill="#818cf8"/>
+<text x="140" y="76" fill="#f8fafc" font-size="44" font-family="Outfit, Arial" font-weight="700">Service &amp; Support Center</text>
+<text x="140" y="748" fill="#94a3b8" font-size="26" font-family="Outfit, Arial">Repair support and maintenance team workflow</text>
+</svg>

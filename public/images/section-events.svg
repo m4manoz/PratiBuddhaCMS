@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' viewBox='0 0 1200 700'>
+  <defs>
+    <linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#fff3d6'/>
+      <stop offset='100%' stop-color='#ffe0a8'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='700' fill='url(#g2)'/>
+  <rect x='90' y='140' width='1020' height='420' rx='24' fill='rgba(249,115,22,0.15)' stroke='#f6ad55' stroke-width='3'/>
+  <text x='600' y='250' fill='#9a3412' font-size='56' font-family='Inter, Arial' font-weight='700' text-anchor='middle'>Events</text>
+  <text x='600' y='320' fill='#1f2937' font-size='30' font-family='Inter, Arial' text-anchor='middle'>Workshops, Product Launches, Regional Training</text>
+</svg>

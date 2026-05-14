@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' viewBox='0 0 1200 700'>
+  <defs>
+    <linearGradient id='g1' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#e0ecff'/>
+      <stop offset='100%' stop-color='#c7ddff'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='700' fill='url(#g1)'/>
+  <rect x='70' y='120' width='1060' height='460' rx='24' fill='rgba(15,93,184,0.18)' stroke='#8ebcff' stroke-width='3'/>
+  <text x='600' y='250' fill='#0f5db8' font-size='56' font-family='Inter, Arial' font-weight='700' text-anchor='middle'>About us</text>
+  <text x='600' y='320' fill='#1f2937' font-size='30' font-family='Inter, Arial' text-anchor='middle'>Reliable electronics, trusted dealer support</text>
+</svg>

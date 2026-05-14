@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="pTitle pDesc">
+  <title id="pTitle">Premium product card placeholder</title>
+  <desc id="pDesc">Stylized device icon for products without uploaded images.</desc>
+  <rect width="640" height="360" rx="18" fill="#0b1323"/>
+  <rect x="44" y="34" width="552" height="292" rx="18" fill="#1e293b"/>
+  <rect x="110" y="86" width="420" height="160" rx="18" fill="#334155"/>
+  <rect x="130" y="106" width="180" height="120" fill="#64748b" rx="12"/>
+  <rect x="330" y="106" width="180" height="120" fill="#94a3b8" rx="12"/>
+  <rect x="240" y="262" width="160" height="24" fill="#38bdf8" rx="12"/>
+  <rect x="196" y="294" width="248" height="14" fill="#cbd5e1" opacity="0.28"/>
+  <circle cx="320" cy="176" r="28" fill="#38bdf8" opacity="0.25"/>
+  <rect x="284" y="164" width="72" height="24" rx="12" fill="#0f172a"/>
+  <text x="300" y="246" fill="#cbd5e1" font-family="Arial" font-size="16" font-weight="700">Image Coming Soon</text>
+</svg>

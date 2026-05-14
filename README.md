@@ -57,3 +57,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Operations Notes (Hosting & Maintenance)
+- Recommended uploads: enable image resize/compression in product media workflow before upload.
+- Backups: schedule DB + public/storage backup jobs (daily incremental, weekly full).
+- SSL: ensure HTTPS termination is active and renewal is automated before certificate expiry.
+- Queue/Email/Assets: monitor queue worker uptime, outbound email queue, and storage/ capacity.
+- Added endpoint: GET /health returns DB and storage health checks.
+
+### Prototype Operations
+- Run migrations + seed once for full baseline:
+  - `php artisan migrate --seed`
+- Refresh dealer/product demo data quickly:
+  - `php artisan db:seed --class=DatabaseSeeder`
+- Backup commands to keep local prototypes recoverable:
+  - Database (SQLite): `Copy-Item database\\database.sqlite backup-database.sqlite`
+  - Storage media: `Copy-Item -Recurse storage app/storage-backup`
+- Restore for next demo run:
+  - Replace `database/database.sqlite` with the backup file.
+  - Restore storage with `Copy-Item -Recurse app/storage-backup/* storage/app/public/*`
+

@@ -1,0 +1,12 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#0b1020"/>
+<rect x="110" y="220" width="980" height="360" rx="24" fill="#1e293b"/>
+<rect x="160" y="280" width="210" height="130" rx="10" fill="#334155"/>
+<rect x="390" y="280" width="210" height="130" rx="10" fill="#334155"/>
+<rect x="620" y="280" width="210" height="130" rx="10" fill="#334155"/>
+<rect x="850" y="280" width="150" height="130" rx="10" fill="#334155"/>
+<rect x="160" y="430" width="210" height="110" rx="10" fill="#334155"/>
+<rect x="390" y="430" width="500" height="110" rx="10" fill="#334155"/>
+<text x="130" y="90" fill="#f8fafc" font-size="44" font-family="Outfit, Arial" font-weight="700">Regional Distribution Hub</text>
+<text x="150" y="745" fill="#94a3b8" font-size="26" font-family="Outfit, Arial">Smartized stock handling and logistics planning</text>
+</svg>

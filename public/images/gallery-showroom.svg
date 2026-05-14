@@ -1,0 +1,9 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#0f172a"/>
+<rect x="70" y="100" width="520" height="600" rx="28" fill="#1e293b"/>
+<rect x="180" y="170" width="300" height="180" rx="12" fill="#334155"/>
+<rect x="180" y="390" width="300" height="180" rx="12" fill="#334155"/>
+<rect x="120" y="620" width="620" height="20" rx="10" fill="#38bdf8" opacity="0.65"/>
+<text x="120" y="75" fill="#f8fafc" font-size="44" font-family="Outfit, Arial" font-weight="700">Pratibuddha Showroom</text>
+<text x="220" y="760" fill="#94a3b8" font-size="26" font-family="Outfit, Arial">Product display and demo space</text>
+</svg>
