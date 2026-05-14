@@ -130,12 +130,13 @@
     .call-options-dialog {
         position: fixed;
         inset: 0;
-        z-index: 120;
+        z-index: 99999;
         display: none;
         align-items: center;
         justify-content: center;
         padding: 1rem;
         background: rgba(2, 6, 23, 0.35);
+        pointer-events: auto;
     }
 
     .call-options-dialog.is-open {
@@ -146,6 +147,7 @@
         position: absolute;
         inset: 0;
         cursor: pointer;
+        z-index: 0;
     }
 
     .call-options-panel {
@@ -159,6 +161,7 @@
         box-shadow: var(--shadow-md);
         display: grid;
         gap: 0.7rem;
+        transform: translateY(0);
     }
 
     .call-option-buttons {
@@ -450,6 +453,8 @@ whatsappButton.rel = 'noopener';
 viberButton.href = `viber://chat?number=${encodeURIComponent(normalized)}&text=${encodeURIComponent(message)}`;
 
 dialog.classList.add('is-open');
+dialog.setAttribute('aria-hidden', 'false');
+document.body.style.overflow = 'hidden';
 }
 
 function closeCallOptions() {
@@ -457,6 +462,8 @@ const dialog = document.getElementById('call-options-dialog');
 
 if (dialog) {
 dialog.classList.remove('is-open');
+dialog.setAttribute('aria-hidden', 'true');
+document.body.style.overflow = '';
 }
 }
 

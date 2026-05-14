@@ -4,6 +4,7 @@
     --bg: #f8fafc;
     --surface: #ffffff;
     --surface-elevated: #f1f5f9;
+    --surface-muted: #eef2ff;
     --text: #0f172a;
     --text-muted: #4b5563;
     --text-subtle: #64748b;
@@ -14,8 +15,9 @@
     --accent: #f97316;
     --success: #16a34a;
     --warning: #f59e0b;
-    --shadow-sm: 0 8px 20px rgba(2, 6, 23, 0.05);
-    --shadow-md: 0 14px 35px rgba(2, 6, 23, 0.08);
+    --shadow-sm: 0 10px 24px rgba(2, 6, 23, 0.05);
+    --shadow-md: 0 16px 40px rgba(2, 6, 23, 0.09);
+    --shadow-lg: 0 20px 45px rgba(2, 6, 23, 0.12);
     --radius-sm: 0.5rem;
     --radius-md: 0.9rem;
     --radius-lg: 1.1rem;
@@ -36,7 +38,10 @@ html {
 body {
     margin: 0;
     color: var(--text);
-    background: var(--bg);
+    background:
+        radial-gradient(circle at 0% 0%, rgba(219, 234, 254, 0.28), transparent 33%),
+        radial-gradient(circle at 100% 0%, rgba(254, 243, 199, 0.2), transparent 33%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 45%, #eef2ff 100%);
     font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
 }
@@ -93,9 +98,10 @@ ol {
     position: sticky;
     top: 0;
     z-index: 40;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 26px rgba(2, 6, 23, 0.06);
 }
 
 .site-navbar-shell {
@@ -120,6 +126,12 @@ ol {
     text-transform: uppercase;
 }
 
+.site-brand span {
+    background: linear-gradient(120deg, #0f172a, #0f5db8);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 .site-nav-links {
     display: flex;
     align-items: center;
@@ -132,13 +144,15 @@ ol {
     border-radius: 0.5rem;
     color: var(--text-muted);
     font-size: 0.94rem;
-    transition: color 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .site-nav-links a:hover,
 .site-nav-links a:focus-visible {
     color: var(--text);
     background: rgba(15, 93, 184, 0.08);
+    transform: translateY(-1px);
+    box-shadow: inset 0 0 0 1px rgba(15, 93, 184, 0.12);
 }
 
 .site-nav-links a.is-active {
@@ -177,6 +191,7 @@ ol {
 
 .section-shell {
     padding: 4.5rem 0;
+    position: relative;
 }
 
 .home-kicker {
@@ -232,13 +247,16 @@ ol {
     border-radius: 0.65rem;
     cursor: pointer;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    isolation: isolate;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
     font-weight: 700;
     font-size: 0.94rem;
 }
 
 .btn:hover {
     transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary {
@@ -248,11 +266,19 @@ ol {
     box-shadow: 0 7px 17px rgba(15, 93, 184, 0.26);
 }
 
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-700), #053f86);
+}
+
 .btn-outline {
     color: var(--primary);
     background: transparent;
     border: 1px solid #93c5fd;
     padding: 0.72rem 1.1rem;
+}
+
+.btn-outline:hover {
+    background: rgba(15, 93, 184, 0.08);
 }
 
 .btn:focus-visible,
@@ -352,6 +378,18 @@ button:focus-visible,
     gap: 1rem;
     align-items: end;
     margin-bottom: 1.3rem;
+    position: relative;
+    padding-bottom: 0.24rem;
+}
+
+.section-head::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 55%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(15, 93, 184, 0.35), transparent);
 }
 
 .home-link-more {
@@ -372,6 +410,7 @@ button:focus-visible,
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .home-product-image-wrap {
@@ -487,6 +526,7 @@ button:focus-visible,
 
 .inner-hero {
     padding: 4.2rem 0;
+    background: linear-gradient(180deg, #eff6ff 0%, transparent 100%);
 }
 
 .inner-hero-content {
@@ -608,10 +648,13 @@ button:focus-visible,
     background: #fff;
     padding: 0.75rem;
     color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-control:focus {
     border-color: #93c5fd;
+    box-shadow: 0 0 0 4px rgba(15, 93, 184, 0.12);
+    background: #fff;
 }
 
 .contact-grid {
@@ -625,6 +668,18 @@ button:focus-visible,
     background: #0f172a;
     color: #cbd5e1;
     margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.15), transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.12), transparent 45%);
+    pointer-events: none;
 }
 
 .site-footer .container {
@@ -776,6 +831,7 @@ button:focus-visible,
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
     overflow: hidden;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .product-media {
@@ -841,6 +897,23 @@ button:focus-visible,
     border-radius: var(--radius-md);
     background: var(--surface);
     box-shadow: var(--shadow-sm);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.home-product-card:hover,
+.product-card:hover,
+.inner-card:hover,
+.gallery-item:hover,
+.event-card:hover,
+.career-card:hover,
+.contact-card:hover,
+.quick-link-card:hover,
+.timeline-item:hover,
+.home-empty-card:hover,
+.dealer-empty:hover {
+    transform: translateY(-4px);
+    border-color: #bcd3ff;
+    box-shadow: var(--shadow-md);
 }
 
 .home-empty-card,
@@ -894,6 +967,7 @@ button:focus-visible,
     border-radius: var(--radius-md);
     padding: 1rem;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .quick-link-card h2 {
@@ -919,6 +993,7 @@ button:focus-visible,
     border-radius: 0.7rem;
     padding: 0.8rem 1rem;
     margin-bottom: 1.2rem;
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.05);
 }
 
 .feedback-success {
@@ -951,6 +1026,12 @@ button:focus-visible,
     border-radius: 0.55rem;
     background: var(--surface);
     padding: 0.45rem 0.72rem;
+    transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+.page-btn:hover {
+    transform: translateY(-1px);
+    border-color: #93c5fd;
 }
 
 .page-btn.is-active {
